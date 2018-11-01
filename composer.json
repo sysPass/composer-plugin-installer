@@ -3,7 +3,7 @@
   "type": "composer-plugin",
   "license": "MIT",
   "autoload": {
-    "psr-0": {"SP\\Composer": "src/"}
+    "psr-0": {"SP\\Composer\\": "src/"}
   },
   "extra": {
     "class": "SP\\Composer\\ExtensionInstallerPlugin"
