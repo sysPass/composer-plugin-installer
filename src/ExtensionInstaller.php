@@ -57,9 +57,9 @@ final class ExtensionInstaller extends LibraryInstaller
 
             switch ($extra['type']) {
                 case 'web':
-                    return 'app/modules/web/' . $name;
+                    return 'app/modules/web/plugins/' . $name;
                 case 'api':
-                    return 'app/modules/api/' . $name;
+                    return 'app/modules/api/plugins/' . $name;
             }
         }
 
