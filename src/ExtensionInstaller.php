@@ -53,7 +53,7 @@ final class ExtensionInstaller extends LibraryInstaller
         $extra = $package->getExtra();
 
         if (isset($extra['type'])) {
-            $name = substr($package->getPrettyName(), 15);
+            $name = ucfirst(substr($package->getPrettyName(), 15));
 
             switch ($extra['type']) {
                 case 'web':
