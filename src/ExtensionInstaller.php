@@ -4,7 +4,7 @@
  *
  * @author    nuxsmin
  * @link      http://syspass.org
- * @copyright 2012-2018 Rubén Domínguez nuxsmin@$syspass.org
+ * @copyright 2012-2020 Rubén Domínguez nuxsmin@$syspass.org
  *
  * This file is part of syspass-composer-plugin-installer.
  *
@@ -27,6 +27,7 @@ namespace SP\Composer;
 
 use Composer\Installer\LibraryInstaller;
 use Composer\Package\PackageInterface;
+use InvalidArgumentException;
 
 /**
  * Class ExtensionInstaller
@@ -38,12 +39,12 @@ final class ExtensionInstaller extends LibraryInstaller
     /**
      * {@inheritDoc}
      */
-    public function getInstallPath(PackageInterface $package)
+    public function getInstallPath(PackageInterface $package): string
     {
         $prefix = substr($package->getPrettyName(), 0, 15);
 
         if ('syspass/plugin-' !== $prefix) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Unable to install plugin, sysPass plugins '
                 . 'should always start their package name with '
                 . '"syspass/plugin-"'
@@ -63,13 +64,13 @@ final class ExtensionInstaller extends LibraryInstaller
             }
         }
 
-        throw new \InvalidArgumentException('Unable to guess the plugin type');
+        throw new InvalidArgumentException('Unable to guess the plugin type');
     }
 
     /**
      * {@inheritDoc}
      */
-    public function supports($packageType)
+    public function supports($packageType): bool
     {
         return 'syspass-plugin' === $packageType;
     }
