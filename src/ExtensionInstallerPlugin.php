@@ -4,7 +4,7 @@
  *
  * @author    nuxsmin
  * @link      http://syspass.org
- * @copyright 2012-2018 Rubén Domínguez nuxsmin@$syspass.org
+ * @copyright 2012-2020 Rubén Domínguez nuxsmin@$syspass.org
  *
  * This file is part of syspass-composer-plugin-installer.
  *
@@ -40,5 +40,15 @@ final class ExtensionInstallerPlugin implements PluginInterface
     {
         $installer = new ExtensionInstaller($io, $composer);
         $composer->getInstallationManager()->addInstaller($installer);
+    }
+
+    public function deactivate(Composer $composer, IOInterface $io)
+    {
+        // TODO: Implement deactivate() method.
+    }
+
+    public function uninstall(Composer $composer, IOInterface $io)
+    {
+        // TODO: Implement uninstall() method.
     }
 }
